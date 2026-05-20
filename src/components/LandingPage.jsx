@@ -1,4 +1,7 @@
 import { useMemo, useState } from 'react'
+import braceletImage from '../assets/braclet.png'
+import earringImage from '../assets/earring.jpg'
+import geminiImage from '../assets/gemini-2.5-flash-image_תיצור_תמונה_של_התכשיט_שיתאים_לפרסום_של_חברת_-0.jpg'
 import CollectionsSection from './CollectionsSection'
 import ContactSection from './ContactSection'
 import GallerySection from './GallerySection'
@@ -41,23 +44,23 @@ function LandingPage() {
   const gallery = useMemo(
     () => [
       {
+        src: geminiImage,
+        alt: 'תכשיטי זהב לאירוע',
+      },
+      {
+        src: braceletImage,
+        alt: 'צמיד זהב יוקרתי',
+      },
+      {
+        src: earringImage,
+        alt: 'עגיל זהב עדין',
+      },
+      {
         src: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=80',
-        alt: 'טבעת זהב יוקרתית עם יהלום',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80',
-        alt: 'סט תכשיטי זהב לאירוע',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1635767798638-3665c5f7d3d0?auto=format&fit=crop&w=1200&q=80',
-        alt: 'שרשרת זהב עדינה על רקע יוקרתי',
-      },
-      {
-        src: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1200&q=80',
-        alt: 'עגילי זהב מעוצבים מקרוב',
+        alt: 'טבעת זהב יוקרתית',
       },
     ],
-    [],
+    [braceletImage, earringImage, geminiImage],
   )
 
   const onInputChange = (event) => {

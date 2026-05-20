@@ -1,6 +1,47 @@
+import { useEffect, useRef, useState } from 'react'
+
 function AboutSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const element = sectionRef.current
+    if (!element) {
+      return
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      setIsVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return
+        }
+
+        setIsVisible(true)
+        observer.unobserve(entry.target)
+      },
+      {
+        threshold: 0.62,
+        rootMargin: '0px',
+      },
+    )
+
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section id="about" className="about-section" aria-label="אודות המותג">
+    <section
+      id="about"
+      ref={sectionRef}
+      className={`about-section ${isVisible ? 'is-visible' : ''}`.trim()}
+      aria-label="אודות המותג"
+    >
       <div className="section-head">
         <p className="hero-kicker">אודות</p>
         <h2>מותג בוטיק שנבנה סביב דיוק, רגש ונוכחות</h2>

@@ -126,6 +126,19 @@ body {
   padding: 8px 34px 48px;
 }
 
+.about-section .hero-kicker {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 480ms ease, transform 560ms ease;
+}
+
+.about-section .section-head h2 {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 560ms ease, transform 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: 70ms;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -143,6 +156,34 @@ body {
     radial-gradient(circle at 86% 8%, rgba(198, 151, 68, 0.2), transparent 40%),
     linear-gradient(180deg, #fff, #fff8ec);
   box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(34px) scale(0.98);
+  transition:
+    opacity 520ms ease,
+    transform 760ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.about-card:nth-child(1) {
+  transition-delay: 170ms;
+}
+
+.about-card:nth-child(2) {
+  transition-delay: 300ms;
+}
+
+.about-section.is-visible .hero-kicker,
+.about-section.is-visible .section-head h2,
+.about-section.is-visible .about-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(74, 46, 14, 0.14);
+  border-color: rgba(198, 151, 68, 0.55);
 }
 
 .about-card h3 {
@@ -619,6 +660,17 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section .hero-kicker,
+  .about-section .section-head h2,
+  .about-card {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
   }
 }
 

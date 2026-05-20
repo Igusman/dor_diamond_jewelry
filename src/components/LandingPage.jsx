@@ -3,6 +3,7 @@ import CollectionsSection from './CollectionsSection'
 import ContactSection from './ContactSection'
 import GallerySection from './GallerySection'
 import HeroSection from './HeroSection'
+import AboutSection from './AboutSection'
 import Footer from './Footer'
 import SiteHeader from './SiteHeader'
 import TestimonialSection from './TestimonialSection'
@@ -105,6 +106,7 @@ function LandingPage() {
     <div className="page-shell" dir="rtl" lang="he">
       <SiteHeader />
       <HeroSection />
+      <AboutSection />
       <ValueStrip />
       <CollectionsSection collections={collections} />
       <GallerySection gallery={gallery} />

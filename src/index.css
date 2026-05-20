@@ -76,6 +76,12 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .brand-mark {
   margin: 0;
   letter-spacing: 0.22em;
@@ -114,6 +120,41 @@ body {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(198, 151, 68, 0.3), rgba(198, 151, 68, 0));
   pointer-events: none;
+}
+
+.about-section {
+  padding: 8px 34px 48px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-card {
+  margin: 0;
+  text-align: right;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 86% 8%, rgba(198, 151, 68, 0.2), transparent 40%),
+    linear-gradient(180deg, #fff, #fff8ec);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-card h3 {
+  margin: 0 0 10px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+}
+
+.about-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 .hero-content h1,
@@ -584,6 +625,7 @@ body {
 @media (max-width: 900px) {
   .top-bar,
   .hero,
+  .about-section,
   .collection-grid,
   .gallery-section {
     padding-left: 18px;
@@ -597,6 +639,7 @@ body {
   }
 
   .value-strip,
+  .about-grid,
   .cards {
     grid-template-columns: 1fr;
   }
@@ -627,10 +670,19 @@ body {
   .top-bar {
     padding-top: 16px;
     padding-bottom: 16px;
+    gap: 10px;
   }
 
   .brand-mark {
     font-size: 0.72rem;
+  }
+
+  .top-links {
+    gap: 10px;
+  }
+
+  .ghost-link {
+    font-size: 0.84rem;
   }
 
   .gallery-grid {
